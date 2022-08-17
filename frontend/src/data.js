@@ -41,7 +41,7 @@ const data = {
       slug: 'economicxi-quartz-black',
       category: 'Mens',
       image: '/images/Economicxi.jpg',
-      price: 98,
+      price: 190,
       countInStock: 8,
       brand: 'Economicxi',
       rating: 4.5,
