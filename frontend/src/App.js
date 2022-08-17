@@ -1,10 +1,10 @@
 import data from './data';
-import { BroswerRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
-    <BroswerRouter>
+    <BrowserRouter>
       <div>
         <header>
           <a href="/">tickersee</a>
@@ -34,7 +34,7 @@ function App() {
           </div>
         </main>
       </div>
-    </BroswerRouter>
+    </BrowserRouter>
   );
 }
 
