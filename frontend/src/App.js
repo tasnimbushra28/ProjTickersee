@@ -22,12 +22,12 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand>tickersee</Navbar.Brand>
               </LinkContainer>
-              <Nav className="me-auto">
+              <Nav className="me-auto  w-100  justify-content-end">
                 <Link to="/cart" className="nav-link">
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                      {cart.cartItems.length}
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                     </Badge>
                   )}
                 </Link>
