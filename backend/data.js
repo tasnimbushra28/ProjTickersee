@@ -1,7 +1,22 @@
+import bcrypt from 'bcryptjs';
 const data = {
+  users: [
+    {
+      name: 'Tasnim',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('012345'),
+      isAdmin: true,
+    },
+    {
+      name: 'Kyo',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('012345'),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: '1',
+      //_id: '1',
       name: 'Titan Black',
       slug: 'titan-black-analog',
       category: 'Unisex',
@@ -14,7 +29,7 @@ const data = {
       description: 'titan black (shiny) unisex',
     },
     {
-      _id: '2',
+      //_id: '2',
       name: 'Losian Luxury',
       slug: 'losian-luxury-black',
       category: 'Unisex',
@@ -27,7 +42,7 @@ const data = {
       description: 'losian luxury black',
     },
     {
-      _id: '3',
+      //_id: '3',
       name: 'Michael Kors Bradshaw',
       slug: 'michael-kors-bradshaw',
       category: 'Mens',
@@ -40,7 +55,7 @@ const data = {
       description: 'michael kors bradshaw black',
     },
     {
-      _id: '4',
+      //_id: '4',
       name: 'Quartz Economicxi',
       slug: 'economicxi-quartz-black',
       category: 'Mens',
