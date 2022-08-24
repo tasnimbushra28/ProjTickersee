@@ -21,6 +21,11 @@ const initialState = {
 };
 function reducer(state, action) {
   switch (action.type) {
+    case 'SET_FULLBOX_ON':
+      return { ...state, fullBox: true };
+    case 'SET_FULLBOX_OFF':
+      return { ...state, fullBox: false };
+
     case 'CART_ADD_ITEM':
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
@@ -59,12 +64,15 @@ function reducer(state, action) {
         },
       };
 
-    case 'SAVE_SHIPPING_ADDRESS':
+    case 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION':
       return {
         ...state,
         cart: {
           ...state.cart,
-          shippingAddress: action.payload,
+          shippingAddress: {
+            ...state.cart.shippingAddress,
+            location: action.payload,
+          },
         },
       };
 
