@@ -74,12 +74,11 @@ export const ratings = [
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
-  const sp = new URLSearchParams(search); // /search?category=Shirts
+  const sp = new URLSearchParams(search);
   const category = sp.get('category') || 'all';
-  const color = sp.get('color') || 'all';
+  const query = sp.get('query') || 'all';
   const price = sp.get('price') || 'all';
   const rating = sp.get('rating') || 'all';
-  const material = sp.get('material') || 'all';
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
@@ -93,7 +92,7 @@ export default function SearchScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/products/search?page=${page}&query=${color}&category=${category}&price=${price}&rating=${rating}&material=${material}&order=${order}`
+          `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
@@ -104,7 +103,7 @@ export default function SearchScreen() {
       }
     };
     fetchData();
-  }, [category, error, order, page, price, color, rating, material]);
+  }, [category, error, order, page, price, query, rating]);
 
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -122,12 +121,11 @@ export default function SearchScreen() {
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
     const filterCategory = filter.category || category;
-    const filterColor = filter.color || color;
+    const filterQuery = filter.query || query;
     const filterRating = filter.rating || rating;
-    const filterMaterial = filter.material || material;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-    return `/search?category=${filterCategory}&query=${filterColor}&price=${filterPrice}&rating=${filterRating}&material=${filterMaterial}&order=${sortOrder}&page=${filterPage}`;
+    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
     <div>
@@ -183,7 +181,7 @@ export default function SearchScreen() {
             </ul>
           </div>
           <div>
-            <h3>Average Customer Reviews</h3>
+            <h3>Average Customer Review</h3>
             <ul>
               {ratings.map((r) => (
                 <li key={r.name}>
@@ -217,15 +215,13 @@ export default function SearchScreen() {
                 <Col md={6}>
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
-                    {color !== 'all' && ' : ' + color}
+                    {query !== 'all' && ' : ' + query}
                     {category !== 'all' && ' : ' + category}
                     {price !== 'all' && ' : Price ' + price}
                     {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                    {material !== 'all' && ' : Material ' + material + ' & up'}
-                    {color !== 'all' ||
+                    {query !== 'all' ||
                     category !== 'all' ||
                     rating !== 'all' ||
-                    material !== 'all' ||
                     price !== 'all' ? (
                       <Button
                         variant="light"
@@ -247,9 +243,7 @@ export default function SearchScreen() {
                     <option value="newest">Newest Arrivals</option>
                     <option value="lowest">Price: Low to High</option>
                     <option value="highest">Price: High to Low</option>
-                    <option value="mostpopular">
-                      Average Customer Reviews
-                    </option>
+                    <option value="mostpopular">Most Popular</option>
                   </select>
                 </Col>
               </Row>
