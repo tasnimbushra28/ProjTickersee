@@ -63,16 +63,12 @@ function reducer(state, action) {
           paymentMethod: '',
         },
       };
-
-    case 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION':
+    case 'SAVE_SHIPPING_ADDRESS':
       return {
         ...state,
         cart: {
           ...state.cart,
-          shippingAddress: {
-            ...state.cart.shippingAddress,
-            location: action.payload,
-          },
+          shippingAddress: action.payload,
         },
       };
 
