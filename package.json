@@ -1,0 +1,21 @@
+{
+  "name": "tickersee",
+  "version": "1.0.0",
+  "description": "1. Install Required Tools (vscode, nodejs, git)\r 2. Create React App\r 3. Create Git Repository\r 4. List Products",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tasnimbushra28/ProjTickersee.git"
+  },
+  "author": "Tasnim Bushra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tasnimbushra28/ProjTickersee/issues"
+  },
+  "homepage": "https://github.com/tasnimbushra28/ProjTickersee#readme"
+}
