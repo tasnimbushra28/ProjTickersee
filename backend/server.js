@@ -24,9 +24,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/api/keys/google', (req, res) => {
-  res.send({ key: process.env.GOOGLE_API_KEY || '' });
-});
+//app.get('/api/keys/google', (req, res) => {
+//res.send({ key: process.env.GOOGLE_API_KEY || '' });
+//});
 
 app.use('/api/upload', uploadRouter);
 app.use('/api/seed', seedRouter);
