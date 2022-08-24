@@ -1,7 +1,4 @@
 import mongoose from 'mongoose';
-const reviewSchema = new mongoose.Schema({
-  review: { type: String, required: true },
-});
 const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
