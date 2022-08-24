@@ -15,8 +15,9 @@ main {
   flex: 1;
 }
 
-.btn-primary {
-  background-color: #f0c000;
+.btn-primary,
+.btn-outline-primary {
+  background-color: chartreuse;
   color: black;
 }
 
@@ -27,11 +28,11 @@ main {
 }
 
 .rating span {
-  color: #ffc000;
+  color: #ffe600d2;
 }
 
 .product {
-  border: 1px #404040 solid;
+  border: 1px #1e9108ef solid;
   margin: 1rem;
 }
 
@@ -61,8 +62,8 @@ main {
   color: #a0a0a0;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #f08000;
-  color: #f08000;
+  border-bottom: 0.2rem solid #9cf000d5;
+  color: darkgoldenrod;
 }
 
 .navbar-brand {
