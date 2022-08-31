@@ -84,6 +84,7 @@ export const payOrderEmailTemplate = (order) => {
   <td align="right">${order.paymentMethod}</td>
   </tr>
   </table>
+
   <h2>Shipping address</h2>
   <p>
   ${order.shippingAddress.fullName},<br/>
